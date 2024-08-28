@@ -58,7 +58,6 @@
                                 <field name="prioridad" string="Prioridad" widget="selection"/>
                                 <field name="date_start" string="Fecha planeada" widget="daterange" options="{&quot;end_date_field&quot;: &quot;date&quot;, &quot;always_range&quot;: &quot;1&quot;}" required="date_start or date" on_change="1"/>
                                 <field name="date" invisible="1" required="date_start" on_change="1"/>
-                                <field name="sprint_actual" string="Sprint Actual"/>
                                 <field name="historias_usuario" string="Historias de Usuario" widget="many2many_tags"/>
                                 <field name="backlog_producto" string="Backlog del Producto"/>
                                 <field name="puntos_historia" string="Puntos de Historia"/>

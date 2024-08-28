@@ -28,11 +28,7 @@ class ProjectProject(models.Model):
         help='Lista de usuarios asignados como desarrolladores del proyecto.'
     )
 
-    sprint_actual = fields.Many2one(
-    'project.sprint',
-    string='Sprint Actual',
-    help='Referencia al sprint activo del proyecto.'
-    )
+
 
     historias_usuario = fields.Many2many(
     'project.user_story',
