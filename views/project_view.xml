@@ -64,10 +64,6 @@
                             <field name="estado_sprint" string="Estado del Sprint"/>
                             <field name="criterios_aceptacion" string="Criterios de Aceptación"/>
                             <field name="revisiones_validaciones" string="Revisiones y Validaciones"/>
-
-
-
-
                         </group>
 
                     </group>
