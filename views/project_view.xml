@@ -52,6 +52,7 @@
                         <group>
                             <field name="active" invisible="1" field_id="active_0"/>
                             <field name="user_id" string="Gerente de proyecto" widget="many2one_avatar_user" readonly="not active" domain="[('share', '=', False)]" options="{'no_quick_create': True}" can_create="True" can_write="True" field_id="user_id_0"/>
+                            <field name="scrum_master" string="Scrum Master" widget="many2one"/>
                             <field name="prioridad" string="Prioridad" widget="selection"/>
                             <field name="date_start" string="Fecha planeada" widget="daterange" options="{&quot;end_date_field&quot;: &quot;date&quot;, &quot;always_range&quot;: &quot;1&quot;}" required="date_start or date" on_change="1" field_id="date_start_0"/>
                             <field name="date" invisible="1" required="date_start" on_change="1" field_id="date_0"/>

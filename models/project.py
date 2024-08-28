@@ -11,3 +11,9 @@ class ProjectProject(models.Model):
         default='media',
         help="Indica la prioridad del proyecto (Alta, Media, Baja)."
     )
+
+    scrum_master = fields.Many2one(
+        'res.users',
+        string='Scrum Master',
+        help='Referencia al usuario asignado como Scrum Master.'
+    )
