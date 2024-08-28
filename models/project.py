@@ -28,15 +28,6 @@ class ProjectProject(models.Model):
         help='Lista de usuarios asignados como desarrolladores del proyecto.'
     )
 
-
-
-    historias_usuario = fields.Many2many(
-    'project.user_story',
-    string='Historias de Usuario',
-    help='Lista de historias de usuario asociadas al proyecto.'
-    )
-
-
     puntos_historia = fields.Integer(
     string='Puntos de Historia',
     help='Estimación de puntos de historia para la tarea o proyecto.'
