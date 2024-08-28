@@ -36,11 +36,6 @@ class ProjectProject(models.Model):
     help='Lista de historias de usuario asociadas al proyecto.'
     )
 
-    backlog_producto = fields.Many2one(
-    'project.backlog',
-    string='Backlog del Producto',
-    help='Referencia al backlog del producto vinculado al proyecto.'
-    )
 
     puntos_historia = fields.Integer(
     string='Puntos de Historia',
