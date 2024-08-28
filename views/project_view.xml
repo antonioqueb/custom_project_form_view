@@ -114,29 +114,68 @@
             </field>
         </record>
 
-        <!-- Extensión de la vista Kanban de proyecto -->
+         <!-- Extensión de la vista Kanban de proyecto -->
         <record id="project.view_project_kanban_inherit" model="ir.ui.view">
             <field name="name">project.project.kanban.extended</field>
             <field name="model">project.project</field>
             <field name="inherit_id" ref="project.view_project_kanban"/>
             <field name="arch" type="xml">
-                <!-- Inserción después del nombre del proyecto -->
+                <!-- Inserción dentro de la tarjeta Kanban -->
                 <xpath expr="//div[@class='o_project_kanban_main']//div[@class='o_kanban_card_content mw-100']//div[@class='o_kanban_primary_left']/div[@class='o_primary']" position="inside">
                     <!-- Campo de Nombre del Proyecto -->
                     <field name="display_name"/>
-                    <!-- Agregar el nombre del socio vinculado (partner_id) debajo del nombre del proyecto -->
-                    <span class="o_text_overflow text-muted" t-if="record.partner_id.value">
-                        <span class="fa fa-user me-2" aria-label="Partner" title="Partner"/>
-                        <t t-esc="record.partner_id.value"/>
-                    </span>
+
+                    <!-- Campo de Scrum Master -->
+                    <div t-if="record.scrum_master.raw_value" class="text-muted o_row">
+                        <span class="fa fa-user-tie me-2" title="Scrum Master"/>
+                        <t t-esc="record.scrum_master.value"/>
+                    </div>
+
+                    <!-- Campo de Product Owner -->
+                    <div t-if="record.product_owner.raw_value" class="text-muted o_row">
+                        <span class="fa fa-user me-2" title="Product Owner"/>
+                        <t t-esc="record.product_owner.value"/>
+                    </div>
+
+                    <!-- Campo de Prioridad -->
+                    <div class="text-muted o_row">
+                        <span class="fa fa-exclamation me-2" title="Prioridad"/>
+                        <t t-esc="record.prioridad.value"/>
+                    </div>
+
+                    <!-- Campo de Puntos de Historia -->
+                    <div class="text-muted o_row">
+                        <span class="fa fa-list-ol me-2" title="Puntos de Historia"/>
+                        <t t-esc="record.puntos_historia.value"/>
+                    </div>
+
+                    <!-- Campo de Estado del Sprint -->
+                    <div class="text-muted o_row">
+                        <span class="fa fa-tasks me-2" title="Estado del Sprint"/>
+                        <t t-esc="record.estado_sprint.value"/>
+                    </div>
                 </xpath>
 
                 <!-- Añadir campos adicionales en la parte inferior de la tarjeta Kanban -->
                 <xpath expr="//div[@class='o_kanban_record_bottom mt-3']//div[@class='oe_kanban_bottom_left']" position="inside">
-                    <!-- Mostrar el campo de 'is_favorite' y 'last_update_status' -->
+                    <!-- Mostrar los criterios de aceptación -->
                     <div class="o_kanban_extra_info">
-                        <field name="is_favorite" widget="boolean_favorite" nolabel="1"/>
-                        <field name="last_update_status" widget="status_with_color" invisible="0"/>
+                        <t t-if="record.criterios_aceptacion.raw_value">
+                            <div class="text-muted o_row">
+                                <span class="fa fa-check-square me-2" title="Criterios de Aceptación"/>
+                                <t t-esc="record.criterios_aceptacion.value"/>
+                            </div>
+                        </t>
+                    </div>
+                    
+                    <!-- Campo de Revisiones y Validaciones -->
+                    <div class="o_kanban_extra_info">
+                        <t t-if="record.revisiones_validaciones.raw_value">
+                            <div class="text-muted o_row">
+                                <span class="fa fa-clipboard-check me-2" title="Revisiones y Validaciones"/>
+                                <t t-esc="record.revisiones_validaciones.value"/>
+                            </div>
+                        </t>
                     </div>
                 </xpath>
             </field>
